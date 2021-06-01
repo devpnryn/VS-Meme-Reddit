@@ -1,5 +1,6 @@
 <script lang="ts">
   import Buttons from "./Buttons.svelte";
+  import ShareOptiions from "./ShareOptiions.svelte";
   import Footer from "./Footer.svelte";
   import AppTitleBar from "./AppTitleBar.svelte";
   import ImgContainer from "./ImgContainer.svelte";
@@ -80,6 +81,24 @@
     }
     imgData = visitedMemes.pop()!;
   };
+
+  //
+  // const setToClipboard = (blob) => {
+  //   const data = [new ClipboardItem({ [blob.type]: blob })];
+  //   return navigator.clipboard.write(data);
+  // };
+  // for share options
+  const OnShareClick = async () => {
+    console.log("clicked share btn", imgData);
+    // try {
+    //   const response = await fetch(imgData.url);
+    //   const blob = await response.blob();
+    //   await setToClipboard(blob);
+    // } catch (error) {
+    //   console.error("Something wrong happened");
+    //   console.error(error);
+    // }
+  };
 </script>
 
 <AppTitleBar data={imgData} />
@@ -89,6 +108,8 @@
     <ImgContainer data={imgData} />
   {/if}
 </main>
+
+<ShareOptiions on:onshareClick={OnShareClick} />
 <Buttons on:onClickNext={fetchNextImg} on:onClickPrevious={fetchPreviousImg} />
 <Footer />
 

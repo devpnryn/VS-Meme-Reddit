@@ -21,7 +21,7 @@
 
 <style>
     .btn-stack {
-        bottom: 12vh;
+        bottom: 25vh;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -33,6 +33,7 @@
         padding: 5px;
         min-width: 65px;
         width: 100%;
+        max-width: 100px;
         margin: 5px;
         text-align: center;
         background: var(--vscode-button-background);
@@ -44,6 +45,9 @@
     }
     .btn:focus {
         background-color: rgb(255, 106, 0);
+    }
+    .btn:disabled {
+        cursor: not-allowed;
     }
     .prev-btn-disabled {
         background-color: gray;
